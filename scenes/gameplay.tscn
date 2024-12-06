@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg4eoumdiaif7"]
+
+[ext_resource type="Texture2D" uid="uid://dtoegrjvremrn" path="res://assets/City3/City3.png" id="1_jsvph"]
+[ext_resource type="Texture2D" uid="uid://c7ds8nmhsxt2m" path="res://resources/elfgirl1.tres" id="2_fjf67"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlxdw"]
+load_path = "res://.godot/imported/portrait.png-ef8c86a1dfa2e84131464e5da9c5b6d0.ctex"
+
+[node name="Gameplay" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(577, 324)
+scale = Vector2(0.597222, 0.597222)
+texture = ExtResource("1_jsvph")
+
+[node name="Portrait" type="Sprite2D" parent="."]
+position = Vector2(785, 228)
+texture = SubResource("CompressedTexture2D_wlxdw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fjf67")
