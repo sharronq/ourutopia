@@ -37,3 +37,6 @@ func fade_out(node):
 	tween.play()
 	await tween.finished
 	tween.kill()
+
+func _on_dialog_ui_mouse_clicked() -> void:
+	print("input!")

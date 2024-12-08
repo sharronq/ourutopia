@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg4eoumdiaif7"]
+[gd_scene load_steps=8 format=3 uid="uid://bg4eoumdiaif7"]
 
 [ext_resource type="Script" path="res://scripts/gameplay.gd" id="1_0ttpp"]
 [ext_resource type="Texture2D" uid="uid://f4diko7t2cy5" path="res://assets/bg.png" id="2_c70fh"]
 [ext_resource type="Texture2D" uid="uid://c7ds8nmhsxt2m" path="res://resources/elfgirl1.tres" id="2_fjf67"]
 [ext_resource type="Texture2D" uid="uid://ct2i7ejct8h7x" path="res://assets/UI/Frame1.png" id="3_ynis8"]
 [ext_resource type="PackedScene" uid="uid://b5apk5eoklhku" path="res://scenes/dialog_ui.tscn" id="5_52eud"]
+[ext_resource type="Script" path="res://scenes/dialog_ui.gd" id="6_2rujn"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rh5aw"]
 
@@ -33,7 +34,7 @@ libraries = {
 "": SubResource("AnimationLibrary_rh5aw")
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="next" type="Button" parent="."]
 offset_left = 110.0
 offset_top = 447.0
 offset_right = 347.0
@@ -44,6 +45,8 @@ text = "next person
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialogUI" parent="CanvasLayer" instance=ExtResource("5_52eud")]
+script = ExtResource("6_2rujn")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="next" to="." method="_on_button_pressed"]
+[connection signal="mouse_clicked" from="CanvasLayer/DialogUI" to="." method="_on_dialog_ui_mouse_clicked"]
