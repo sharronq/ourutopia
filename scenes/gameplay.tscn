@@ -5,9 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://c7ds8nmhsxt2m" path="res://resources/elfgirl1.tres" id="2_fjf67"]
 [ext_resource type="Texture2D" uid="uid://ct2i7ejct8h7x" path="res://assets/UI/Frame1.png" id="3_ynis8"]
 [ext_resource type="PackedScene" uid="uid://b5apk5eoklhku" path="res://scenes/dialog_ui.tscn" id="5_52eud"]
-[ext_resource type="Script" path="res://scenes/dialog_ui.gd" id="6_2rujn"]
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rh5aw"]
+[ext_resource type="Script" path="res://scripts/character.gd" id="5_84qfa"]
+[ext_resource type="Script" path="res://scripts/dialog_ui.gd" id="6_2rujn"]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_0ttpp")
@@ -25,20 +24,16 @@ texture = ExtResource("3_ynis8")
 metadata/_edit_lock_ = true
 
 [node name="char1" type="Sprite2D" parent="."]
-position = Vector2(949, 168)
-scale = Vector2(3.35577, 3.35577)
+position = Vector2(950, 170)
+scale = Vector2(3.23832, 3.23832)
 texture = ExtResource("2_fjf67")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="char1"]
-libraries = {
-"": SubResource("AnimationLibrary_rh5aw")
-}
+script = ExtResource("5_84qfa")
 
 [node name="next" type="Button" parent="."]
-offset_left = 110.0
-offset_top = 447.0
-offset_right = 347.0
-offset_bottom = 543.0
+offset_left = 526.0
+offset_top = 216.0
+offset_right = 763.0
+offset_bottom = 312.0
 text = "next person
 "
 
@@ -48,5 +43,8 @@ text = "next person
 script = ExtResource("6_2rujn")
 metadata/_edit_use_anchors_ = true
 
+[connection signal="new_sprite_called" from="char1" to="CanvasLayer/DialogUI" method="_on_char_1_new_sprite_called"]
+[connection signal="sprite_exited" from="char1" to="CanvasLayer/DialogUI" method="_on_char_1_sprite_exited"]
 [connection signal="pressed" from="next" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="next" to="char1" method="_on_next_pressed"]
 [connection signal="mouse_clicked" from="CanvasLayer/DialogUI" to="." method="_on_dialog_ui_mouse_clicked"]

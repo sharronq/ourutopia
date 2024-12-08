@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bvhyx3ufsbhc5"]
+
+[ext_resource type="Texture2D" uid="uid://btf6pvqim3jqt" path="res://assets/portraits/humangirl1.png" id="1_5ohh0"]
+
+[resource]
+atlas = ExtResource("1_5ohh0")
+region = Rect2(0, 0, 100, 100)

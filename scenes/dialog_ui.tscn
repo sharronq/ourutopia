@@ -1,8 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5apk5eoklhku"]
+[gd_scene load_steps=6 format=3 uid="uid://b5apk5eoklhku"]
 
 [ext_resource type="Theme" uid="uid://mad352fkkrhp" path="res://resources/new_theme.tres" id="1_g3l0q"]
 [ext_resource type="FontFile" uid="uid://dm3xnixwfx0j5" path="res://assets/fonts/Squarebit2Px.ttf" id="2_7rvvl"]
 [ext_resource type="Texture2D" uid="uid://c6pa11jsqmbqe" path="res://assets/UI/pixelarrownext.png" id="2_ddx0o"]
+
+[sub_resource type="GDScript" id="GDScript_68kqv"]
+script/source = "extends Control
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	var dialog = $\"DialogBox/RichTextLabel\"
+	var speaker = $\"SpeakerBox/Label\"
+	
+"
 
 [sub_resource type="LabelSettings" id="LabelSettings_jdyf7"]
 font = ExtResource("2_7rvvl")
@@ -13,9 +23,11 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 426.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_g3l0q")
+script = SubResource("GDScript_68kqv")
 
 [node name="DialogBox" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(0, 150)
