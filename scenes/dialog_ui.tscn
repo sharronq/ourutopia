@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5apk5eoklhku"]
+
+[ext_resource type="Theme" uid="uid://mad352fkkrhp" path="res://resources/new_theme.tres" id="1_g3l0q"]
+[ext_resource type="FontFile" uid="uid://dm3xnixwfx0j5" path="res://assets/fonts/Squarebit2Px.ttf" id="2_7rvvl"]
+[ext_resource type="Texture2D" uid="uid://c6pa11jsqmbqe" path="res://assets/UI/pixelarrownext.png" id="2_ddx0o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jdyf7"]
+font = ExtResource("2_7rvvl")
+font_size = 30
+
+[node name="DialogUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_g3l0q")
+
+[node name="DialogBox" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_g3l0q")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
+layout_mode = 2
+theme = ExtResource("1_g3l0q")
+bbcode_enabled = true
+text = "This is a line of [wave]dialog[/wave]
+"
+
+[node name="SpeakerBox" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -212.0
+offset_right = 200.0
+offset_bottom = -151.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="SpeakerBox"]
+layout_mode = 2
+text = "Speaker"
+label_settings = SubResource("LabelSettings_jdyf7")
+
+[node name="Nextarrow" type="Sprite2D" parent="."]
+position = Vector2(1125, 622)
+scale = Vector2(0.097, 0.1)
+texture = ExtResource("2_ddx0o")

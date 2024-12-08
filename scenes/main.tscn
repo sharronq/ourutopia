@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhx2bclug4cg8"]
+[gd_scene load_steps=4 format=3 uid="uid://bhx2bclug4cg8"]
 
 [ext_resource type="PackedScene" uid="uid://c8xx64auonlx4" path="res://scenes/button.tscn" id="1_scdio"]
+[ext_resource type="PackedScene" uid="uid://bg4eoumdiaif7" path="res://scenes/gameplay.tscn" id="2_lp2jv"]
 
 [sub_resource type="GDScript" id="GDScript_tmv4t"]
 script/source = "# MAIN: Main scene that stores everything that will always (or most of the time) 
@@ -30,3 +31,5 @@ offset_right = 16.0
 offset_bottom = 6.0
 
 [node name="Menu" type="Node2D" parent="."]
+
+[node name="Gameplay" parent="." instance=ExtResource("2_lp2jv")]

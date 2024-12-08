@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://oup5j31mwthf"]
+
+[ext_resource type="Texture2D" uid="uid://dlaeiasnnsg67" path="res://assets/portraits/elfgirl3.png" id="1_pae2m"]
+
+[resource]
+atlas = ExtResource("1_pae2m")
+region = Rect2(7, 0, 93, 100)

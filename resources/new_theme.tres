@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://mad352fkkrhp"]
+
+[ext_resource type="FontFile" uid="uid://dm3xnixwfx0j5" path="res://assets/fonts/Squarebit2Px.ttf" id="1_sns8t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kefn2"]
+content_margin_left = 40.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.00930916, 0.249266, 0.293005, 0.419608)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0.8, 0.8, 1)
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_kefn2")
+RichTextLabel/font_sizes/normal_font_size = 35
+RichTextLabel/fonts/normal_font = ExtResource("1_sns8t")

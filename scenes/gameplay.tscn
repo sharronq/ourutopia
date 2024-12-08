@@ -1,21 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg4eoumdiaif7"]
+[gd_scene load_steps=7 format=3 uid="uid://bg4eoumdiaif7"]
 
-[ext_resource type="Texture2D" uid="uid://dtoegrjvremrn" path="res://assets/City3/City3.png" id="1_jsvph"]
+[ext_resource type="Script" path="res://scripts/gameplay.gd" id="1_0ttpp"]
+[ext_resource type="Texture2D" uid="uid://f4diko7t2cy5" path="res://assets/bg.png" id="2_c70fh"]
 [ext_resource type="Texture2D" uid="uid://c7ds8nmhsxt2m" path="res://resources/elfgirl1.tres" id="2_fjf67"]
+[ext_resource type="Texture2D" uid="uid://ct2i7ejct8h7x" path="res://assets/UI/Frame1.png" id="3_ynis8"]
+[ext_resource type="PackedScene" uid="uid://b5apk5eoklhku" path="res://scenes/dialog_ui.tscn" id="5_52eud"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlxdw"]
-load_path = "res://.godot/imported/portrait.png-ef8c86a1dfa2e84131464e5da9c5b6d0.ctex"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rh5aw"]
 
 [node name="Gameplay" type="Node2D"]
+script = ExtResource("1_0ttpp")
 
 [node name="bg" type="Sprite2D" parent="."]
-position = Vector2(577, 324)
-scale = Vector2(0.597222, 0.597222)
-texture = ExtResource("1_jsvph")
+position = Vector2(578.778, 328.25)
+scale = Vector2(0.601389, 0.601389)
+texture = ExtResource("2_c70fh")
+metadata/_edit_lock_ = true
 
-[node name="Portrait" type="Sprite2D" parent="."]
-position = Vector2(785, 228)
-texture = SubResource("CompressedTexture2D_wlxdw")
+[node name="Frame1" type="Sprite2D" parent="."]
+position = Vector2(976, 182)
+scale = Vector2(2.16176, 2.16176)
+texture = ExtResource("3_ynis8")
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="char1" type="Sprite2D" parent="."]
+position = Vector2(949, 168)
+scale = Vector2(3.35577, 3.35577)
 texture = ExtResource("2_fjf67")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="char1"]
+libraries = {
+"": SubResource("AnimationLibrary_rh5aw")
+}
+
+[node name="Button" type="Button" parent="."]
+offset_left = 110.0
+offset_top = 447.0
+offset_right = 347.0
+offset_bottom = 543.0
+text = "next person
+"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogUI" parent="CanvasLayer" instance=ExtResource("5_52eud")]
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
