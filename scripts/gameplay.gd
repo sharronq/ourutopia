@@ -3,9 +3,7 @@ extends Node2D
 @onready var dialog_box = $dialog_box/DialogUI
 @onready var scanner = $scan_anim
 @onready var sprite = $sprite
-@onready var day_text = $DayText/day_text
 @onready var info_box = $CharInfo
-@onready var cover = $DayText/cover
 
 var character
 
@@ -15,9 +13,6 @@ func _ready() -> void:
 	sprite.visible = false
 	dialog_box.visible = false
 	
-	day_text.scroll_text("Day 1", 0.5)
-	await get_tree().create_timer(3).timeout
-	cover.visible = false
 	character = sprite.texture
 
 func _on_next_pressed() -> void:

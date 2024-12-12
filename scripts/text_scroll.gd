@@ -1,4 +1,5 @@
 extends RichTextLabel
+signal text_scroll_done
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,3 +12,5 @@ func scroll_text(input_text:String, speed:float):
 	for i in get_parsed_text():
 		visible_characters += 1
 		await get_tree().create_timer(speed).timeout
+	
+	text_scroll_done.emit()

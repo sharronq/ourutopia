@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bg4eoumdiaif7"]
+[gd_scene load_steps=54 format=3 uid="uid://bg4eoumdiaif7"]
 
 [ext_resource type="Script" path="res://scripts/gameplay.gd" id="1_0ttpp"]
 [ext_resource type="Texture2D" uid="uid://dicyiktoatbq" path="res://assets/UI/recolored_background.png" id="2_eufik"]
@@ -49,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://14rrqtudy3tg" path="res://assets/UI/thumbprint.png" id="47_7rbax"]
 [ext_resource type="PackedScene" uid="uid://jsawta1a7y5u" path="res://scenes/char_info.tscn" id="48_umqnm"]
 [ext_resource type="PackedScene" uid="uid://c30o33aolc4nk" path="res://scenes/day_text.tscn" id="49_3fbea"]
+[ext_resource type="PackedScene" uid="uid://hdeebi6v8i0e" path="res://scenes/accept_reject.tscn" id="49_bk6h7"]
 
 [sub_resource type="Animation" id="Animation_06wip"]
 length = 0.001
@@ -123,6 +124,14 @@ text = "next person
 script = ExtResource("6_2rujn")
 metadata/_edit_use_anchors_ = true
 
+[node name="accept_reject" type="CanvasLayer" parent="."]
+
+[node name="AcceptReject" parent="accept_reject" instance=ExtResource("49_bk6h7")]
+offset_left = 1064.0
+offset_top = 259.0
+offset_right = 308.0
+offset_bottom = -274.0
+
 [node name="scan_anim" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(989, 200)
@@ -152,6 +161,7 @@ offset_right = -17.0
 offset_bottom = -21.0
 
 [node name="DayText" parent="." instance=ExtResource("49_3fbea")]
+visible = false
 offset_left = -5.0
 offset_top = -4.0
 offset_right = -5.0
