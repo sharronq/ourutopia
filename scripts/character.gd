@@ -1,11 +1,14 @@
 extends Sprite2D
-signal sprite_exited
-signal new_sprite_called
 
 @onready var characters = {
-	"Lyra Solis": [preload("res://resources/elfgirl1.tres"), ""],
+	"Lyra Solis": [preload("res://resources/elfgirl1.tres"), "Construction Worker"],
 	"Elysia Dorn": [preload("res://resources/human4.tres")],
-	"Daniel Grimes": [preload("res://resources/human2.tres")],
+	
+	"Daniel Grimes": [preload("res://resources/human2.tres"), 
+							"Occupation: Construction Worker",
+							"Morals: 55"],
+							
+	
 	"David Winters": [preload("res://resources/elfboy1.tres")],
 	"Novah Tyndall": [preload("res://resources/elfgirl2.tres")],
 	"Zayden Korr": [preload("res://resources/elfgirl3.tres")],
@@ -21,19 +24,11 @@ func _ready() -> void:
 	current_char = char_list.pop_at(0)
 	self.texture = characters[current_char][0]
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _on_next_pressed() -> void:
-	call_new_sprite()
-	new_sprite_called.emit()
-
 func call_new_sprite():
 	fade_out(self)
-	sprite_exited.emit()
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 	current_char = char_list.pop_at(0)
+	print(current_char)
 	self.texture = characters[current_char][0]
 	fade_in(self)
 

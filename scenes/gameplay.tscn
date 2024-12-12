@@ -23,7 +23,7 @@ scale = Vector2(2.16176, 2.16176)
 texture = ExtResource("3_ynis8")
 metadata/_edit_lock_ = true
 
-[node name="char1" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(950, 170)
 scale = Vector2(3.23832, 3.23832)
 texture = ExtResource("2_fjf67")
@@ -43,8 +43,4 @@ text = "next person
 script = ExtResource("6_2rujn")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="new_sprite_called" from="char1" to="CanvasLayer/DialogUI" method="_on_char_1_new_sprite_called"]
-[connection signal="sprite_exited" from="char1" to="CanvasLayer/DialogUI" method="_on_char_1_sprite_exited"]
-[connection signal="pressed" from="next" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="next" to="char1" method="_on_next_pressed"]
-[connection signal="mouse_clicked" from="CanvasLayer/DialogUI" to="." method="_on_dialog_ui_mouse_clicked"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]

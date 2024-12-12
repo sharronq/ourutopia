@@ -1,13 +1,15 @@
 extends Node2D
-@onready var dialog_box = preload("res://scripts/dialog_ui.gd")
+@onready var dialog_box = $CanvasLayer/DialogUI
+@onready var sprite = $sprite
+var character
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	character = sprite.texture
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _on_dialog_ui_mouse_clicked() -> void:
-	print("input!")
+func _on_next_pressed() -> void:
+	sprite.call_new_sprite()
+	dialog_box.clear_text()
+	character = sprite.current_char
+	await get_tree().create_timer(1).timeout
+	dialog_box.change_text(character, "Default")

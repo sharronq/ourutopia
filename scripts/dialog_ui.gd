@@ -1,5 +1,21 @@
 extends Control
-signal mouse_clicked
+
+@onready var dialog = $DialogBox/RichTextLabel
+var dialog_map = {
+	"Daniel Grimes": 
+		{
+			"Default": "Good day."
+		},
+		
+	"Lyra Solis":
+		{
+			"Default": "Hello!"
+		},
+	"Elysia Dorn":
+		{
+			"Default": "Yo."
+		}
+	}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,12 +25,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _input(event):
-	if event is InputEventMouseButton:
-		mouse_clicked.emit()
+func change_text(character, context):
+	dialog.text = dialog_map[character][context]
 
-func _on_char_1_new_sprite_called() -> void:
-	pass # Replace with function body
-
-func _on_char_1_sprite_exited() -> void:
-	pass
+func clear_text():
+	dialog.text = ""

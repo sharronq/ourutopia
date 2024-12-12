@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhx2bclug4cg8"]
+[gd_scene load_steps=3 format=3 uid="uid://bhx2bclug4cg8"]
 
-[ext_resource type="PackedScene" uid="uid://b88igb1j4q2th" path="res://scenes/button.tscn" id="1_scdio"]
 [ext_resource type="PackedScene" uid="uid://bg4eoumdiaif7" path="res://scenes/gameplay.tscn" id="2_lp2jv"]
 
 [sub_resource type="GDScript" id="GDScript_tmv4t"]
@@ -23,12 +22,6 @@ func _process(delta: float) -> void:
 script = SubResource("GDScript_tmv4t")
 
 [node name="HUD" type="Node2D" parent="."]
-
-[node name="Settings" parent="HUD" instance=ExtResource("1_scdio")]
-offset_left = 13.0
-offset_top = 3.0
-offset_right = 16.0
-offset_bottom = 6.0
 
 [node name="Menu" type="Node2D" parent="."]
 
