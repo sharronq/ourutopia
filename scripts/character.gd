@@ -14,6 +14,7 @@ extends Sprite2D
 	"Zayden Korr": [preload("res://resources/elfgirl3.tres")],
 	"Oliver Grant": [preload("res://resources/human3.tres")],
 	"Kael Voss": [preload("res://resources/human1.tres")]}
+
 var current_char
 var char_list
 var fade_duration = 0.5
@@ -21,9 +22,9 @@ var fade_duration = 0.5
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	char_list = characters.keys()
-	current_char = char_list.pop_at(0)
-	self.texture = characters[current_char][0]
-
+	texture = characters["Lyra Solis"][0]
+	current_char = "Lyra Solis"
+	
 func call_new_sprite():
 	fade_out(self)
 	await get_tree().create_timer(1).timeout

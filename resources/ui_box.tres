@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://mad352fkkrhp"]
 
-[ext_resource type="FontFile" uid="uid://dm3xnixwfx0j5" path="res://assets/fonts/Squarebit2Px.ttf" id="1_sns8t"]
+[ext_resource type="FontFile" uid="uid://dm3xnixwfx0j5" path="res://assets/fonts/Squarebit2Px.ttf" id="1_31cnb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kefn2"]
 content_margin_left = 40.0
@@ -17,4 +17,4 @@ border_color = Color(0, 0.8, 0.8, 1)
 [resource]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_kefn2")
 RichTextLabel/font_sizes/normal_font_size = 35
-RichTextLabel/fonts/normal_font = ExtResource("1_sns8t")
+RichTextLabel/fonts/normal_font = ExtResource("1_31cnb")

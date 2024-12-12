@@ -1,27 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://qaynasurs6hc"]
+[gd_scene load_steps=4 format=3 uid="uid://qaynasurs6hc"]
 
 [ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_262xj"]
-[ext_resource type="PackedScene" uid="uid://bhx2bclug4cg8" path="res://scenes/main.tscn" id="2_7b810"]
 [ext_resource type="PackedScene" uid="uid://uc46tquieu5b" path="res://scenes/mainmenu.tscn" id="2_83atf"]
-
-[sub_resource type="GDScript" id="GDScript_le8lp"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
+[ext_resource type="PackedScene" uid="uid://bg4eoumdiaif7" path="res://scenes/gameplay.tscn" id="3_8mgb1"]
 
 [node name="sceneManager" type="Node2D"]
 script = ExtResource("1_262xj")
 
 [node name="Mainmenu" parent="." instance=ExtResource("2_83atf")]
 
-[node name="main" parent="." instance=ExtResource("2_7b810")]
-script = SubResource("GDScript_le8lp")
+[node name="Gameplay" parent="." instance=ExtResource("3_8mgb1")]

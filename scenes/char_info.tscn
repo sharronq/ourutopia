@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://jsawta1a7y5u"]
+
+[ext_resource type="Theme" uid="uid://mad352fkkrhp" path="res://resources/ui_box.tres" id="1_8g7s2"]
+
+[node name="CharInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 17.0
+offset_top = 24.0
+offset_right = 417.0
+offset_bottom = 424.0
+theme = ExtResource("1_8g7s2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[wave]character name[/wave]
+
+[info]"
