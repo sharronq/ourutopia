@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5apk5eoklhku"]
+[gd_scene load_steps=6 format=3 uid="uid://b5apk5eoklhku"]
 
 [ext_resource type="Theme" uid="uid://mad352fkkrhp" path="res://resources/ui_box.tres" id="1_g3l0q"]
+[ext_resource type="Script" path="res://scripts/text_scroll.gd" id="2_4v0p1"]
 [ext_resource type="FontFile" uid="uid://dm3xnixwfx0j5" path="res://assets/fonts/Squarebit2Px.ttf" id="2_7rvvl"]
 [ext_resource type="Texture2D" uid="uid://c6pa11jsqmbqe" path="res://assets/UI/pixelarrownext.png" id="2_ddx0o"]
 
@@ -29,12 +30,13 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_g3l0q")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
+[node name="dialog" type="RichTextLabel" parent="DialogBox"]
 layout_mode = 2
 theme = ExtResource("1_g3l0q")
 bbcode_enabled = true
 text = "This is a line of [wave]dialog[/wave]
 "
+script = ExtResource("2_4v0p1")
 
 [node name="SpeakerBox" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(200, 50)

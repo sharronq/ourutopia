@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgos0hxveyv6"]
+
+[ext_resource type="Script" path="res://scripts/lie_detector.gd" id="1_wk4fl"]
+[ext_resource type="Texture2D" uid="uid://bun7m42lcg187" path="res://assets/UI/liedetector.png" id="1_x21vj"]
+
+[sub_resource type="Animation" id="Animation_j2pk6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Liedetector:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(329, 133, 245, 62)]
+}
+
+[sub_resource type="Animation" id="Animation_y2i2a"]
+resource_name = "lie detected"
+length = 0.26
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Liedetector:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(28, 132, 245, 62), Rect2(328, 132, 245, 62)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rexi"]
+_data = {
+"RESET": SubResource("Animation_j2pk6"),
+"lie detected": SubResource("Animation_y2i2a")
+}
+
+[node name="LieDetector" type="Node2D"]
+script = ExtResource("1_wk4fl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3rexi")
+}
+
+[node name="Liedetector" type="Sprite2D" parent="."]
+position = Vector2(543, 239.25)
+scale = Vector2(2.97581, 2.97581)
+texture = ExtResource("1_x21vj")
+region_enabled = true
+region_rect = Rect2(329, 133, 245, 62)

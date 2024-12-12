@@ -15,3 +15,4 @@ func _on_day_text_text_scroll_done() -> void:
 	tween.play()
 	await tween.finished
 	tween.kill()
+	queue_free()

@@ -14,9 +14,11 @@ offset_right = 417.0
 offset_bottom = 424.0
 theme = ExtResource("1_8g7s2")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+[node name="Name" type="RichTextLabel" parent="PanelContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[wave]character name[/wave]
+text = "[wave]character name[/wave]"
 
-[info]"
+[node name="Info" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+bbcode_enabled = true
