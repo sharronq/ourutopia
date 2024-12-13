@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bg4eoumdiaif7"]
+[gd_scene load_steps=16 format=3 uid="uid://bg4eoumdiaif7"]
 
 [ext_resource type="Script" path="res://scripts/gameplay.gd" id="1_0ttpp"]
 [ext_resource type="Texture2D" uid="uid://dicyiktoatbq" path="res://assets/UI/recolored_background.png" id="2_eufik"]
@@ -8,9 +8,19 @@
 [ext_resource type="Script" path="res://scripts/dialog_ui.gd" id="6_2rujn"]
 [ext_resource type="PackedScene" uid="uid://cgos0hxveyv6" path="res://scenes/lie_detector.tscn" id="6_px4fs"]
 [ext_resource type="PackedScene" uid="uid://3k7nbj37resr" path="res://scenes/buttons/scan_button.tscn" id="9_si6s5"]
-[ext_resource type="PackedScene" uid="uid://mhw5d8wfs5hn" path="res://scenes/buttons/interrogate.tscn" id="13_l1ffr"]
+[ext_resource type="Texture2D" uid="uid://l2vqut6gkg7c" path="res://assets/UI/accept_reject_interrogate_buttons.png" id="10_7x1nn"]
+[ext_resource type="Texture2D" uid="uid://dqy2xeu7p5j41" path="res://resources/prism_dialogue.tres" id="12_3q5pf"]
+[ext_resource type="FontFile" uid="uid://dm3xnixwfx0j5" path="res://assets/fonts/Squarebit2Px.ttf" id="13_vlsu7"]
 [ext_resource type="PackedScene" uid="uid://hdeebi6v8i0e" path="res://scenes/buttons/accept_reject.tscn" id="49_bk6h7"]
 [ext_resource type="PackedScene" uid="uid://b4iqo1ngeea8" path="res://scenes/sprite.tscn" id="50_02doi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgi3p"]
+atlas = ExtResource("10_7x1nn")
+region = Rect2(25, 23, 196, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hv8o"]
+atlas = ExtResource("10_7x1nn")
+region = Rect2(226, 23, 197, 54)
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_0ttpp")
@@ -30,24 +40,25 @@ metadata/_edit_lock_ = true
 [node name="Sprite" parent="." instance=ExtResource("50_02doi")]
 
 [node name="dialog_box" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="DialogUI" parent="dialog_box" instance=ExtResource("5_52eud")]
 script = ExtResource("6_2rujn")
 metadata/_edit_use_anchors_ = true
 
-[node name="accept_reject" type="CanvasLayer" parent="."]
-
-[node name="AcceptReject" parent="accept_reject" instance=ExtResource("49_bk6h7")]
-offset_left = 1064.0
-offset_top = 259.0
-offset_right = 308.0
-offset_bottom = -274.0
-
 [node name="ScanButton" parent="." instance=ExtResource("9_si6s5")]
 
 [node name="LieDetector" parent="." instance=ExtResource("6_px4fs")]
-position = Vector2(691, 268)
+position = Vector2(697, 265)
 scale = Vector2(0.500006, 0.500006)
+
+[node name="accept_reject" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="AcceptReject" parent="accept_reject" instance=ExtResource("49_bk6h7")]
+offset_top = 259.0
+offset_right = 320.0
+offset_bottom = -275.0
 
 [node name="next" type="TextureButton" parent="."]
 offset_left = 673.0
@@ -57,8 +68,76 @@ offset_bottom = 461.0
 scale = Vector2(0.543288, 0.543288)
 texture_normal = ExtResource("5_5cm5d")
 
-[node name="Interrogate" parent="." instance=ExtResource("13_l1ffr")]
-visible = false
+[node name="interrogate" type="TextureButton" parent="."]
+offset_left = 784.0
+offset_top = 437.0
+offset_right = 980.0
+offset_bottom = 491.0
+texture_normal = SubResource("AtlasTexture_wgi3p")
+texture_pressed = SubResource("AtlasTexture_4hv8o")
 
+[node name="why" type="TextureButton" parent="."]
+offset_left = 1.0
+offset_top = 13.0
+offset_right = 1281.0
+offset_bottom = 263.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("12_3q5pf")
+
+[node name="text" type="Label" parent="why"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 96.0
+offset_right = 1216.0
+offset_bottom = 172.0
+theme_override_fonts/font = ExtResource("13_vlsu7")
+theme_override_font_sizes/font_size = 60
+text = "Why do you want to live here?"
+
+[node name="suspicious" type="TextureButton" parent="."]
+offset_left = 1.0
+offset_top = 144.0
+offset_right = 1281.0
+offset_bottom = 394.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("12_3q5pf")
+
+[node name="text" type="Label" parent="suspicious"]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 96.0
+offset_right = 1204.0
+offset_bottom = 172.0
+theme_override_fonts/font = ExtResource("13_vlsu7")
+theme_override_font_sizes/font_size = 60
+text = "Can you explain ___"
+
+[node name="suspicious2" type="TextureButton" parent="."]
+offset_left = 3.0
+offset_top = 273.0
+offset_right = 1283.0
+offset_bottom = 523.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("12_3q5pf")
+
+[node name="text" type="Label" parent="suspicious2"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 96.0
+offset_right = 1194.0
+offset_bottom = 251.0
+theme_override_fonts/font = ExtResource("13_vlsu7")
+theme_override_font_sizes/font_size = 60
+text = "Can you explain ___"
+
+[connection signal="sus1_lie" from="dialog_box/DialogUI" to="." method="_on_dialog_ui_sus_1_lie"]
+[connection signal="sus2_lie" from="dialog_box/DialogUI" to="." method="_on_dialog_ui_sus_2_lie"]
+[connection signal="why_lie" from="dialog_box/DialogUI" to="." method="_on_dialog_ui_why_lie"]
 [connection signal="scan_complete" from="ScanButton" to="." method="_on_scan_button_scan_complete"]
+[connection signal="accept" from="accept_reject/AcceptReject" to="." method="_on_accept_reject_accept"]
+[connection signal="reject" from="accept_reject/AcceptReject" to="." method="_on_accept_reject_reject"]
 [connection signal="pressed" from="next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="interrogate" to="." method="_on_interrogate_pressed"]
+[connection signal="pressed" from="why" to="." method="_on_why_pressed"]
+[connection signal="pressed" from="suspicious" to="." method="_on_suspicious_pressed"]
+[connection signal="pressed" from="suspicious2" to="." method="_on_suspicious_2_pressed"]

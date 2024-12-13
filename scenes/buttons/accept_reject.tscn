@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hdeebi6v8i0e"]
+[gd_scene load_steps=11 format=3 uid="uid://hdeebi6v8i0e"]
 
 [ext_resource type="Script" path="res://scripts/accept_reject.gd" id="1_25pam"]
 [ext_resource type="Texture2D" uid="uid://l2vqut6gkg7c" path="res://assets/UI/accept_reject_interrogate_buttons.png" id="2_22oug"]
@@ -7,9 +7,17 @@
 atlas = ExtResource("2_22oug")
 region = Rect2(13, 234, 111, 50)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtmsv"]
+atlas = ExtResource("2_22oug")
+region = Rect2(133, 236, 110, 47)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jol1q"]
 atlas = ExtResource("2_22oug")
 region = Rect2(253, 237, 114, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnj7w"]
+atlas = ExtResource("2_22oug")
+region = Rect2(377, 236, 118, 47)
 
 [sub_resource type="Animation" id="Animation_yfn4g"]
 length = 0.001
@@ -68,9 +76,9 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 756.0
+offset_left = 1064.0
 offset_top = 359.0
-offset_right = 27.0
+offset_right = 335.0
 offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -93,6 +101,7 @@ offset_right = 222.092
 offset_bottom = 82.0
 mouse_filter = 1
 texture_normal = SubResource("AtlasTexture_v2vju")
+texture_pressed = SubResource("AtlasTexture_rtmsv")
 metadata/_edit_lock_ = true
 
 [node name="reject" type="TextureButton" parent="."]
@@ -103,6 +112,7 @@ offset_right = 354.092
 offset_bottom = 79.0
 mouse_filter = 1
 texture_normal = SubResource("AtlasTexture_jol1q")
+texture_pressed = SubResource("AtlasTexture_fnj7w")
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

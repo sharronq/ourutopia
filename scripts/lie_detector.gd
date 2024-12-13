@@ -8,3 +8,5 @@ func _process(delta: float) -> void:
 func lie_detected():
 	anim_player.play("lie detected")
 	
+func stop_animation():
+	anim_player.play("RESET")

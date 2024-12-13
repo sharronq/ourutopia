@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://jsawta1a7y5u"]
+[gd_scene load_steps=6 format=3 uid="uid://jsawta1a7y5u"]
 
 [ext_resource type="Theme" uid="uid://mad352fkkrhp" path="res://resources/ui_box.tres" id="1_8g7s2"]
 [ext_resource type="Script" path="res://scripts/char_info.gd" id="1_c86cy"]
 [ext_resource type="FontFile" uid="uid://dm3xnixwfx0j5" path="res://assets/fonts/Squarebit2Px.ttf" id="2_p8jvw"]
+[ext_resource type="Texture2D" uid="uid://dvw43mq4lujab" path="res://assets/UI/x.png" id="4_v7cgq"]
+[ext_resource type="Texture2D" uid="uid://ch1cnmyb7i83y" path="res://assets/UI/x_clicked.png" id="5_lmdri"]
 
 [node name="CharInfo" type="Control"]
 layout_mode = 3
@@ -100,3 +102,15 @@ offset_bottom = 393.0
 theme_override_fonts/font = ExtResource("2_p8jvw")
 theme_override_font_sizes/font_size = 25
 text = "Hospital Visits: "
+
+[node name="X" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 326.0
+offset_top = -5.00001
+offset_right = 726.0
+offset_bottom = 395.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_v7cgq")
+texture_pressed = ExtResource("5_lmdri")
+
+[connection signal="pressed" from="X" to="." method="_on_x_pressed"]

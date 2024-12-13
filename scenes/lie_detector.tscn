@@ -20,7 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_y2i2a"]
 resource_name = "lie detected"
-length = 0.26
+length = 0.75
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -29,7 +29,7 @@ tracks/0/path = NodePath("Liedetector:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Rect2(28, 132, 245, 62), Rect2(328, 132, 245, 62)]
