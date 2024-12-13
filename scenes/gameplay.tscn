@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scripts/gameplay.gd" id="1_0ttpp"]
 [ext_resource type="Texture2D" uid="uid://dicyiktoatbq" path="res://assets/UI/recolored_background.png" id="2_eufik"]
 [ext_resource type="Texture2D" uid="uid://ct2i7ejct8h7x" path="res://assets/UI/Frame1.png" id="3_ynis8"]
+[ext_resource type="Texture2D" uid="uid://dlnwyc0waa0r8" path="res://assets/UI/next_subject.png" id="5_5cm5d"]
 [ext_resource type="PackedScene" uid="uid://b5apk5eoklhku" path="res://scenes/dialog_ui.tscn" id="5_52eud"]
 [ext_resource type="Script" path="res://scripts/dialog_ui.gd" id="6_2rujn"]
 [ext_resource type="PackedScene" uid="uid://cgos0hxveyv6" path="res://scenes/lie_detector.tscn" id="6_px4fs"]
 [ext_resource type="PackedScene" uid="uid://3k7nbj37resr" path="res://scenes/buttons/scan_button.tscn" id="9_si6s5"]
-[ext_resource type="Script" path="res://scripts/char_info.gd" id="11_um45c"]
-[ext_resource type="PackedScene" uid="uid://jsawta1a7y5u" path="res://scenes/char_info.tscn" id="48_umqnm"]
+[ext_resource type="PackedScene" uid="uid://mhw5d8wfs5hn" path="res://scenes/buttons/interrogate.tscn" id="13_l1ffr"]
 [ext_resource type="PackedScene" uid="uid://hdeebi6v8i0e" path="res://scenes/buttons/accept_reject.tscn" id="49_bk6h7"]
 [ext_resource type="PackedScene" uid="uid://b4iqo1ngeea8" path="res://scenes/sprite.tscn" id="50_02doi"]
 
@@ -29,18 +29,6 @@ metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="." instance=ExtResource("50_02doi")]
 
-[node name="LieDetector" parent="." instance=ExtResource("6_px4fs")]
-position = Vector2(-77, -55)
-scale = Vector2(0.500006, 0.500006)
-
-[node name="next" type="Button" parent="."]
-offset_left = 526.0
-offset_top = 216.0
-offset_right = 763.0
-offset_bottom = 312.0
-text = "next person
-"
-
 [node name="dialog_box" type="CanvasLayer" parent="."]
 
 [node name="DialogUI" parent="dialog_box" instance=ExtResource("5_52eud")]
@@ -57,13 +45,20 @@ offset_bottom = -274.0
 
 [node name="ScanButton" parent="." instance=ExtResource("9_si6s5")]
 
-[node name="CharInfo" parent="." instance=ExtResource("48_umqnm")]
-visible = false
-offset_left = -17.0
-offset_top = -21.0
-offset_right = -17.0
-offset_bottom = -21.0
-script = ExtResource("11_um45c")
+[node name="LieDetector" parent="." instance=ExtResource("6_px4fs")]
+position = Vector2(691, 268)
+scale = Vector2(0.500006, 0.500006)
 
+[node name="next" type="TextureButton" parent="."]
+offset_left = 673.0
+offset_top = 167.0
+offset_right = 922.0
+offset_bottom = 461.0
+scale = Vector2(0.543288, 0.543288)
+texture_normal = ExtResource("5_5cm5d")
+
+[node name="Interrogate" parent="." instance=ExtResource("13_l1ffr")]
+visible = false
+
+[connection signal="scan_complete" from="ScanButton" to="." method="_on_scan_button_scan_complete"]
 [connection signal="pressed" from="next" to="." method="_on_next_pressed"]
-[connection signal="scan_complete" from="ScanButton" to="CharInfo" method="_on_scan_button_scan_complete"]

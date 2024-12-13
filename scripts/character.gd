@@ -91,8 +91,8 @@ var fade_duration = 0.5
 func _ready() -> void:
 	visible = false
 	char_list = characters.keys()
-	texture = characters["Lyra Solis"][0]
-	current_char = "Lyra Solis"
+	texture = characters["Daniel Grimes"][0]
+	current_char = "Daniel Grimes"
 	
 func call_new_sprite():
 	fade_out(self)
