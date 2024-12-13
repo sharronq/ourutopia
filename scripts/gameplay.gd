@@ -9,6 +9,7 @@ extends Node2D
 @onready var interrogate_suspicious_q = $suspicious/text
 @onready var interrogate_suspicious2 = $suspicious2
 @onready var interrogate_suspicious2_q = $suspicious2/text
+@onready var protocol_text = $protocol_text
 
 @onready var day_text = preload("res://scenes/day_text.tscn")
 
@@ -30,6 +31,7 @@ var lying_asked = false
 var suspicious2_asked = false
 
 func _ready() -> void:
+	protocol_text.visible = false
 	interrogate_why.visible = false
 	interrogate_suspicious.visible = false
 	interrogate_suspicious2.visible = false
@@ -146,15 +148,29 @@ func _on_accept_reject_accept() -> void:
 	await get_tree().create_timer(1).timeout
 	sprite.visible = false
 	initialize_interrogate()
-	if character == "Oliver Grant":
-		day_text_instance.end_day()
+	
+	match character:
+		"Daniel Grimes", "David Winters":
+			protocol_text.visible = true
+			protocol_text.scroll_text("Protocol 1 Violated", 0.05)
+			await get_tree().create_timer(2).timeout
+			protocol_text.visible = false
+		"Oliver Grant":
+			protocol_text.visible = true
+			protocol_text.scroll_text("Protocol 1 Violated", 0.05)
+			await get_tree().create_timer(2).timeout
+			protocol_text.visible = false
+			day_text_instance.end_day()
 
 func _on_accept_reject_reject() -> void:
 	sprite.fade_out(sprite)
+	await get_tree().create_timer(1).timeout
 	sprite.visible = false
 	initialize_interrogate()
-	if character == "Oliver Grant":
-		day_text_instance.end_day()
+	
+	match character: 
+		"Oliver Grant":
+			day_text_instance.end_day()
 
 func _on_why_pressed() -> void:
 	if not why_asked:

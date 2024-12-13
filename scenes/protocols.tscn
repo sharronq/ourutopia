@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://q1jirmie7gd0"]
+
+[ext_resource type="Script" path="res://scripts/protocols.gd" id="1_m5h6u"]
+[ext_resource type="Texture2D" uid="uid://bhxpwwpdv2p2" path="res://assets/Protocol_button.png" id="1_piqhi"]
+[ext_resource type="Texture2D" uid="uid://c3434cwjah0gw" path="res://assets/Protocol (1).png" id="2_da4do"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odal"]
+atlas = ExtResource("1_piqhi")
+
+[node name="Protocols" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m5h6u")
+
+[node name="protocols" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -4.0
+offset_right = 198.0
+offset_bottom = 196.0
+scale = Vector2(0.7, 0.7)
+texture_normal = SubResource("AtlasTexture_0odal")
+
+[node name="Protocol(1)" type="Sprite2D" parent="."]
+position = Vector2(347, 299)
+scale = Vector2(1.23238, 1.25238)
+texture = ExtResource("2_da4do")
+
+[connection signal="pressed" from="protocols" to="." method="_on_protocols_pressed"]
